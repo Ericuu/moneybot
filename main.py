@@ -11,7 +11,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 
 # ----------------- 🛠️ 全域參數設定區 -----------------
 OPENAI_API_KEY = "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"
-BOT_TOKEN = "8936011094:AAEhPR3FSgVYp2ZtNe3zWpXxB2MxqrP2r4Q"
+BOT_TOKEN = "8936011094:AAEhPR3FSgVYp2ZtNe3zWpxXB2MxqrP2r4Q"
 ADMIN_CHAT_ID = "5681949363"  # 你的管理員 Telegram ID
 SEEN_POSTS_FILE = "seen_posts.json"
 CLIENTS_FILE = "clients.json"
