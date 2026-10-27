@@ -120,6 +120,12 @@ def handle_telegram_updates():
                 chat_id = str(query["message"]["chat"]["id"])
                 data = query["data"]
                 
+                # 🌟 關鍵修復：立即回報 Telegram 消除按鈕轉圈
+                try:
+                    requests.post(f"https://api.telegram.org/bot{BOT_TOKEN}/answerCallbackQuery", json={"callback_query_id": query["id"]}, timeout=3)
+                except Exception:
+                    pass
+                
                 # 客戶端按鈕
                 if data == "check_status":
                     clients_dict = load_json(CLIENTS_FILE)
@@ -525,7 +531,7 @@ if __name__ == "__main__":
     # 在背景啟動 HTTP 伺服器
     threading.Thread(target=start_health_check_server, daemon=True).start()
     
-    while True:
+    while type(True) == bool:
         try:
             handle_telegram_updates()
             asyncio.run(run_global_pool_scraper())
